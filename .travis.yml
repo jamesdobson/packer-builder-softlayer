@@ -1,0 +1,19 @@
+language: go
+
+env: 
+  global: 
+    - secure: Wbb4Cd1b88+05FsY5nrxzjZ41lEw8LMG5p/gYYX19uRyZUpNLm7y6SLfo/3Or3w/ejhKfLUKoqwM4DSql2D/Lf+PjhtUQZKn87eC7a+36/m8NwLGePRF563rkxcYlJbuq9lEW0CBs7yGzONgR8uFxwgj2Wc1nh4OUnRU+GknYSY=
+    - secure: dD96RGTrorcUTMtUDTpRXONLQjwA1I+AQhTWhkSm1FCXUcXp1gpgvkLRt8ZA/N1ED52ig8Re72orNkJcvhSnZwwLOlUvu5vGLPEBkAHdfRvL9IcpmeoVDy+1aLwPd9Az+Xm0+rCHohoC9drBRrIBDLZOYzGRiC73dNH51qrYk00=
+
+install: 
+  - go get github.com/mitchellh/gox
+
+script: ./build.sh
+
+after_success:
+  - "curl -T ./dist/linux_386/packer-builder-softlayer -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/jamesdobson/packer-builder-softlayer/main/$TRAVIS_BUILD_NUMBER/linux_386/packer-builder-softlayer"
+  - "curl -T ./dist/linux_amd64/packer-builder-softlayer -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/jamesdobson/packer-builder-softlayer/main/$TRAVIS_BUILD_NUMBER/linux_amd64/packer-builder-softlayer"
+  - "curl -T ./dist/linux_arm/packer-builder-softlayer -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/jamesdobson/packer-builder-softlayer/main/$TRAVIS_BUILD_NUMBER/linux_arm/packer-builder-softlayer"
+  - "curl -T ./dist/windows_386/packer-builder-softlayer.exe -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/jamesdobson/packer-builder-softlayer/main/$TRAVIS_BUILD_NUMBER/windows_386/packer-builder-softlayer.exe"
+  - "curl -T ./dist/windows_amd64/packer-builder-softlayer.exe -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/jamesdobson/packer-builder-softlayer/main/$TRAVIS_BUILD_NUMBER/windows_amd64/packer-builder-softlayer.exe"
+
