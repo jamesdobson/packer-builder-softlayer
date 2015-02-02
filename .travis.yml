@@ -11,5 +11,5 @@ install:
 script: ./build.sh
 
 after_success:
-  - "find dist -type f | cut -c 6- | xargs -I BUILD_PRODUCT curl -T dist/BUILD_PRODUCT -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/$BINTRAY_USER/packer-builder-softlayer/main/5/BUILD_PRODUCT"
+  - "find dist -type f | cut -c 6- | xargs -I BUILD_PRODUCT curl -T dist/BUILD_PRODUCT -u$BINTRAY_USER:$BINTRAY_API_KEY https://api.bintray.com/content/$BINTRAY_USER/packer-builder-softlayer/main/$TRAVIS_BUILD_NUMBER/BUILD_PRODUCT"
 
