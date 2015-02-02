@@ -12,5 +12,5 @@ go test -v ./...
 
 # Cross-compile.
 gox -os="linux windows" -build-toolchain
-gox -os="linux windows" -output="dist/{{.OS}}_{{.Arch}}/{{.Dir}}" -parallel=2
+gox -os="linux windows" -output="dist/{{.Dir}}-{{.OS}}_{{.Arch}}" -parallel=2
 
