@@ -55,7 +55,11 @@ go install
 
 # Make sure the gopath is usable by vagrant
 sudo chown -R -f vagrant:vagrant $SRCROOT
-sudo chown -R -f vagrant:vagrant #{GOPATH} 
+sudo chown -R -f vagrant:vagrant #{GOPATH}
+
+# Continuous Integration tools
+sudo apt-get install -y ruby1.9.1 ruby1.9.1-dev
+sudo gem install travis -v 1.7.5 --no-rdoc --no-ri
 
 echo "Ready for development. Begin with cd $GOPATH/#{PACKAGE_PATH}"
 
