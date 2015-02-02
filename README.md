@@ -1,5 +1,8 @@
 # SoftLayer Builder (for packer.io)
 
+[![Build Status](https://travis-ci.org/jamesdobson/packer-builder-softlayer.svg?branch=continuous-integration)](https://travis-ci.org/jamesdobson/packer-builder-softlayer)
+[![Download](https://api.bintray.com/packages/jamesdobson/packer-builder-softlayer/main/images/download.svg) ](https://bintray.com/jamesdobson/packer-builder-softlayer/main/_latestVersion)
+
 The softlayer builder is able to create new images for use with SoftLayer. The builder takes a source image (identified by it's global ID or reference name), runs any provisioning necessary on the image after launching it, then snapshots it into a reusable image. This reusable image can then be used as the foundation of new servers that are launched within SoftLayer.
 
 The builder does not manage images. Once it creates an image, it is up to you to use it or delete it.
