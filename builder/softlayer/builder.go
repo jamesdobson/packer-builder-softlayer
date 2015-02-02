@@ -284,5 +284,5 @@ func (self *Builder) Cancel() {
 		log.Println("Cancelling the step runner...")
 		self.runner.Cancel()
 	}
-	fmt.Println("Canceling the builder")
+	fmt.Println("Cancelling the builder")
 }
